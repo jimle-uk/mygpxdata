@@ -3,7 +3,6 @@ from .xmlquery import XMLQuery
 
 class Parser(object):
 	def __init__(self):
-		self._data = {}
 		pass
 
 	def load(self, filename):
@@ -14,7 +13,7 @@ class Parser(object):
 
 	def parse(self, filename):
 		self.load(filename)
-		self.run()
+		return self.run()
 
 class XMLParser(Parser):
 	def __init__(self):
@@ -25,7 +24,4 @@ class XMLParser(Parser):
 		self._xmlQuery.open(filename)
 
 	def run(self):
-		self._data = self._xmlQuery.toDict()
-
-	def getTrackSegments(self):
-		return self._data['trk']['trkseg']
+		return self._xmlQuery.toDict()

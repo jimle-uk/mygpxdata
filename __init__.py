@@ -12,7 +12,7 @@ class myGPXData:
 		self._data = self._parser.parse(filename)
 
 	def update(self, **kwargs):
-		coordinates = utils.trackSegmentsToCoordinates(self._parser.getTrackSegments())
+		coordinates = utils.trackSegmentsToCoordinates(self.getTrackSegments())
 		
 		if "size" in kwargs:
 			self._renderer.setSize(kwargs.get("size"))
