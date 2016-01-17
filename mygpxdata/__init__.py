@@ -5,7 +5,7 @@ from .utils import trackSegmentsToCoordinates
 from .stats import ( calculateTotalDuration, calculateTotalDistance, calculateTotalClimb,
 	calculateAveragePace, calculateSplits )
 
-class myGPXData:
+class mygpxdata:
 	def __init__(self):
 		self._parser = XMLParser()
 		self._renderer = SVGRenderer()

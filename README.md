@@ -29,19 +29,19 @@ BSD. See ```LICENSE```
 #### How to use
 
 ```python
-from myGPXData import myGPXData
+from mygpxdata import mygpxdata
 
-gpx = myGPXData()
-gpx.open("/path/to/file.gpx")
+gpxdata = mygpxdata()
+gpxdata.open("/path/to/file.gpx")
 
 # output width and height is required
 width = 320
 height = 240
 
-output = gpx.renderToString(size=(width, height))
+output = gpxdata.renderToString(size=(width, height))
 # output = "<?xml version="1.0" encoding="utf-8" ?>..." etc
 
-gpx.renderToFile("/path/to/file.svg", size=(width, height))
+gpxdata.renderToFile("/path/to/file.svg", size=(width, height))
 
 
 print "total distance: ", gpxdata.getTotalDistance() 
