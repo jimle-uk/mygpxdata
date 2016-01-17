@@ -1,6 +1,7 @@
+# -*- coding: utf-8 -*-
 import svgwrite
-from .utils import ( concatCoordinateGroups, calculateBounds, calculateScale, 
-	transformCoordinates ,calculateOffset , filterCoordinatesByAngle )
+from .utils import ( flatten, calculateBounds, calculateScale, 
+	transformCoordinates, calculateOffset, filterCoordinatesByAngle )
 
 class Renderer(object):
 	canvas_width = 0
