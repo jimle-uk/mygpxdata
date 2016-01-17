@@ -16,7 +16,6 @@ class mygpxdata:
 		self._data = self._parser.parse(filename)
 
 	def update(self, **kwargs):
-		coordinates = utils.trackSegmentsToCoordinates(self.getTrackSegments())
 		
 		if "size" in kwargs:
 			self._renderer.setSize(kwargs.get("size"))
@@ -24,6 +23,11 @@ class mygpxdata:
 		if "resolution" in kwargs:
 			self._renderer.setPathResolution(kwargs.get("resolution"))
 
+		path_attributes = {k:v for k, v in kwargs.items() if k in self._renderer.path_attributes.keys()}
+		if path_attributes:
+			self._renderer.setPathAttributes(path_attributes)
+
+		coordinates = utils.trackSegmentsToCoordinates(self.getTrackSegments())
 		self._renderer.setCoordinates(coordinates)
 
 	def renderToString(self, **kwargs):
