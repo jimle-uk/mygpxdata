@@ -78,7 +78,7 @@ def transformCoordinates(coordinates, min_x, min_y, scale_x, scale_y):
 	"""
 	transformed_coordinates = []
 	for seg in coordinates:
-		transformed_coordinates.append([((trkpt[0]- min_x)*scale_x,(trkpt[1]-min_y)*scale_y) for trkpt in seg])
+		transformed_coordinates.append([((trkpt[0]-min_x)*scale_x,(trkpt[1]-min_y)*scale_y) for trkpt in seg])
 	return transformed_coordinates
 
 def filterCoordinatesByAngle(coordinates, degrees=0):
