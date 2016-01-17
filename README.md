@@ -17,10 +17,11 @@ extract stats.~~
 Note: This package does not render the gpx route on top of a map (ie. openstreetmaps, google maps).
 Only the route is rendered.
 
-#### Installation requirements and dependencies
+#### Installation
 
-- python 2.7
-- svgwrite 1.1.6
+```python
+pip install git+git://github.com/jimle-uk/mygpxdata.git
+```
 
 #### License
 
