@@ -118,5 +118,5 @@ class XMLQuery(XMLNode):
 		if tree:
 			self._tree = tree
 			self._node = self._tree.getroot()
-			self._nodeName, self._xmlns = self.getNodeTag()
+			self._xmlns, self._nodeName = self.getNodeTag()
 		return self
