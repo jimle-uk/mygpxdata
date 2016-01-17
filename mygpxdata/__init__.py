@@ -3,7 +3,9 @@ from .parser import XMLParser
 from .renderer import SVGRenderer
 from .utils import trackSegmentsToCoordinates
 from .stats import ( calculateTotalDuration, calculateTotalDistance, calculateTotalClimb,
-	calculateAveragePace, calculateSplits )
+	calculateAveragePace, calculateSplits, convertTimestamp )
+
+import datetime
 
 class mygpxdata:
 	def __init__(self):
@@ -31,6 +33,18 @@ class mygpxdata:
 	def renderToFile(self, filename, **kwargs):
 		self.update(**kwargs)
 		return self._renderer.renderToFile(filename)
+
+	def getVersion(self):
+		return self._data.get('version')
+	
+	def getCreator(self):
+		return self._data.get('creator')
+	
+	def getName(self):
+		return self._data.get('trk').get('name')
+	
+	def getTime(self):
+		return utils.convertTimestamp(self._data.get('trk').get('time'))
 
 	def getTrackSegments(self):
 		trkseg = self._data['trk']['trkseg']

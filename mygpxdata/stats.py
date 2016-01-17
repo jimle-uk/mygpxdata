@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
-from .utils import flatten
-from datetime import datetime
+from .utils import flatten, convertTimestamp
 import math
 
-date_format = "%Y-%m-%dT%H:%M:%SZ"
 
 # ==============================================================================
 # time
@@ -17,7 +15,7 @@ def getTimestamps(trackSegments):
 	"""returns array of all timestamps as datetime objects from trackSegments"""
 	timestamps = []
 	for seg in trackSegments:
-		timestamps.append([datetime.strptime(item.get("time"), date_format) for item in seg])
+		timestamps.append([convertTimestamp(item.get("time")) for item in seg])
 	return timestamps
 
 def calculateTotalDuration(trackSegments):
