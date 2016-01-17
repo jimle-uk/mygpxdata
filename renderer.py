@@ -19,13 +19,13 @@ class Renderer(object):
 		self.canvas_width, self.canvas_height = size
 
 	def computeValues(self):
-		all_coordinates = concatCoordinateGroups(self._coordinates)
+		all_coordinates = flatten(self._coordinates)
 
 		self.min_x, self.max_x, self.min_y, self.max_y = calculateBounds(all_coordinates)
 		self.scale_x, self.scale_y = calculateScale(self.canvas_width, self.canvas_height, self.min_x, self.max_x, self.min_y, self.max_y)
 		
 		self._transformed_cordinates = transformCoordinates(self._coordinates, self.min_x, self.min_y, self.scale_x, self.scale_y)
-		self.t_min_x, self.t_max_x, self.t_min_y, self.t_max_y = calculateBounds(concatCoordinateGroups(self._transformed_cordinates))
+		self.t_min_x, self.t_max_x, self.t_min_y, self.t_max_y = calculateBounds(flatten(self._transformed_cordinates))
 
 		self.offset_width = self.canvas_width + self.margin_left + self.margin_right
 		self.offset_height = self.canvas_height + self.margin_top + self.margin_bottom

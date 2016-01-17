@@ -79,7 +79,7 @@ class TestUtils(unittest.TestCase):
 		self.assertEquals(utils.calculateAngle((0,0), (1,-1)), -45) # south east 
 		self.assertEquals(utils.calculateAngle((0,0), (0,0)), 0) # east 
 
-	def test_concatCoordinateGroups(self):
+	def test_flatten(self):
 		test_a = [[1,2,3]]
 		expected_a = [1,2,3]
 		test_b = [[1,2,3], [4,5,6]]
@@ -87,9 +87,9 @@ class TestUtils(unittest.TestCase):
 		test_c = [[1,2,3],[4,5,6],[7],[8,9]]
 		expected_c = [1,2,3,4,5,6,7,8,9]
 
-		self.assertEquals(utils.concatCoordinateGroups(test_a), expected_a)
-		self.assertEquals(utils.concatCoordinateGroups(test_b), expected_b)
-		self.assertEquals(utils.concatCoordinateGroups(test_c), expected_c)
+		self.assertEquals(utils.flatten(test_a), expected_a)
+		self.assertEquals(utils.flatten(test_b), expected_b)
+		self.assertEquals(utils.flatten(test_c), expected_c)
 
 	def test_trackSegmentsToCoordinates(self):
 		self.assertEquals(utils.trackSegmentsToCoordinates(self.trkseg), [[(231504374.0, 445151444.0)]])

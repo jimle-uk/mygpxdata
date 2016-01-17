@@ -62,8 +62,8 @@ def calculateAngle(p1, p2):
 # ==============================================================================
 # track
 # ==============================================================================
-def concatCoordinateGroups(coordinates):
-	return [trkpt for segment in coordinates for trkpt in segment]
+def flatten(l):
+	return [i for n in l for i in n]
 
 def trackSegmentsToCoordinates(segments):
 	coordinates = []
