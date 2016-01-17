@@ -2,6 +2,8 @@
 from .parser import XMLParser
 from .renderer import SVGRenderer
 from .utils import trackSegmentsToCoordinates
+from .stats import ( calculateTotalDuration, calculateTotalDistance, calculateTotalClimb,
+	calculateAveragePace, calculateSplits )
 
 class myGPXData:
 	def __init__(self):
@@ -29,3 +31,25 @@ class myGPXData:
 	def renderToFile(self, filename, **kwargs):
 		self.update(**kwargs)
 		return self._renderer.renderToFile(filename)
+
+	def getTrackSegments(self):
+		trkseg = self._data['trk']['trkseg']
+		return [trkseg] if isinstance(trkseg[0], dict) else trkseg
+
+	def getTotalDuration(self):
+		return calculateTotalDuration(self.getTrackSegments())
+
+	def getTotalDistance(self):
+		return calculateTotalDistance(self.getTrackSegments())
+
+	def getTotalClimb(self):
+		return calculateTotalClimb(self.getTrackSegments())
+
+	def getAveragePace(self):
+		return caculateAveragePace(self.getTrackSegments())
+
+	def getSplits(self):
+		return calculateSplits(self.getTrackSegments())
+
+	def getAveragePace(self):
+		return calculateAveragePace(self.getTrackSegments())
